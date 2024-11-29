@@ -3,17 +3,20 @@ import Link from 'next/link'
 import React from 'react'
 import { LinksMenuProps } from '@/models/LinksConfigure';
 import { usePathname } from 'next/navigation';
+import { Icon } from "@iconify/react";
+import style from './sidemenu.module.css'
 
 const LinksProp = ({links}: LinksMenuProps) => {
     const pathname  = usePathname()
     
   return (
     <div className="flex flex-col gap-y-2 pt-3">
-    {links.map(({ link, linkName }) => (
+    {links.map(({ link, linkName, icon }) => (
         <Link key={link} href={link}
         className={`${
-            pathname  === link ? 'text-red-800 bg-green-600' : ' bg-blue-700 text-white' 
-        } p-2 hover:bg-purple-600 transition-colors duration-500`}>
+            pathname  === link ? `${style.TabToggle}` : `${style.Tab}` 
+        } transition-colors duration-300 flex py-2 px-2 rounded border-blue-400 border-b-2`}>
+           <Icon icon={icon} width="24" height="24" style={{ marginRight: "8px" }} className=''/>
           {linkName}
         </Link>
       ))}

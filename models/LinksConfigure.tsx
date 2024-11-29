@@ -1,6 +1,7 @@
 export interface LinksDetails{
     link: string;
     linkName: string;
+    icon:string;
 }
 
 export interface LinksMenuProps {
@@ -9,19 +10,23 @@ export interface LinksMenuProps {
 
 export const Links= [
     {
-        link: "/dashboard",
-        linkName: 'dashboard'
+        link: "/",
+        linkName: 'Dashboard',
+        icon: "carbon:dashboard", 
     },
     {
         link: "/doctor",
-        linkName: 'doctor'
+        linkName: 'Doctor',
+        icon: "mdi:doctor",
     },
     {
         link: "/user",
-        linkName: 'user'
+        linkName: 'User',
+        icon: "carbon:user-avatar", 
     },
     {
         link: "/drug",
-        linkName: "drug"
+        linkName: "Drug",
+        icon: "mdi:pill", 
     },
 ]
