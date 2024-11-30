@@ -1,12 +1,12 @@
 import React from "react";
-import { ToggleThem } from "../ToggleTheme";
+import { ToggleThem } from "../toggle-theme";
 import { Search } from "lucide-react";
-import SideBar from "./ToggleMenu";
+import LinksMenu from "../SideMenu/links-menu";
 
 const Nav = () => {
   return (
-    <nav className= "px-5 py-3 bg-white dark:bg-[#334155] fixed w-full top-0 backdrop-filter bg-opacity-80 flex justify-end max-lg:justify-between items-end z-40">
-      <SideBar className="lg:hidden "/>
+    <nav className="px-5 py-3 bg-white dark:bg-[#334155] fixed w-full top-0 backdrop-filter bg-opacity-80 flex justify-end max-lg:justify-between items-end z-40">
+      <LinksMenu />
       <div className="flex items-center justify-end space-x-4">
         <div className="relative w-full">
           <span className="absolute inset-y-0 left-3 flex items-center text-gray-400">

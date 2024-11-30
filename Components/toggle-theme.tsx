@@ -8,17 +8,17 @@ export function ToggleThem() {
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
-    useEffect(() => {
-        setMounted(true)
-    }, [])
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
-  if(!mounted) return null
+  if (!mounted) return null;
 
   return (
     <div className="text-black">
       {theme === "light" ? (
         <motion.button
-          whileTap={{ scale: 0.5, rotate: 3 }}
+          whileHover={{ scale: 1.2, rotate: 45 }}
           key={"sun"}
           onClick={() => setTheme("dark")}
         >
@@ -26,7 +26,7 @@ export function ToggleThem() {
         </motion.button>
       ) : (
         <motion.button
-          whileTap={{ scale: 0.5, rotate: 3 }}
+          whileHover={{ scale: 1.2, rotate: -8 }}
           key={"moon"}
           onClick={() => setTheme("light")}
         >

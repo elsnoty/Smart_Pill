@@ -1,6 +1,0 @@
-.TabToggle{
-    @apply text-blue-700 bg-white hover:bg-blue-300;
-}
-.Tab{
-    @apply bg-zinc-100 text-black hover:bg-slate-300;
-}
