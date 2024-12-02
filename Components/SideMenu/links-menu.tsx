@@ -19,12 +19,12 @@ const LinksMenu = () => {
     <>
       <Icon
         icon="mingcute:menu-fill"
-        className="cursor-pointer rounded-full p-2 h-10 w-10 text-foreground md:hidden"
+        className="cursor-pointer rounded-full p-2 h-10 w-10 text-foreground lg:hidden"
         onClick={toggleMenu}
       />
-      <div
+      <aside
         className={cn(
-          `fixed px-5 h-full py-3 dark:bg-background bg-white z-50 top-0 left-0 w-[350px] transition-all`,
+          `fixed px-5 h-full py-4 bg-white/10 backdrop-blur-sm z-50 left-0 inset-y-0 w-[320px] transition-all`,
           { "-left-96": isOpen }
         )}
       >
@@ -32,14 +32,14 @@ const LinksMenu = () => {
           icon="material-symbols:close"
           width="24"
           height="24"
-          className="cursor-pointer md:hidden absolute right-8 top-8 "
+          className="cursor-pointer lg:hidden absolute right-8 top-8 "
           onClick={toggleMenu}
         />
         <Link href={"/dashboard"} className="block w-fit">
           <Image src={Logo} alt="logo" width={60} height={60} />
         </Link>
         <LinksProp links={Links} />
-      </div>
+      </aside>
     </>
   );
 };

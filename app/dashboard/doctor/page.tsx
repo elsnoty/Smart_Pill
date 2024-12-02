@@ -3,7 +3,10 @@ export default async function Home() {
   return (
     <div className="">
       <BreadCrumbs
-        breadcrumbs={[{ label: "Dashboard", href: "/dashboard", active: true }]}
+        breadcrumbs={[
+          { label: "Dashboard", href: "/dashboard" },
+          { label: "Doctor", href: "/dashboard/doctor", active: true },
+        ]}
       />
       hello world
     </div>

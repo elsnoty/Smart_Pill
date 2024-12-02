@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { Icon } from "@iconify/react/dist/iconify.js";
 
-export function ToggleThem() {
+export function ToggleTheme() {
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 

@@ -10,15 +10,15 @@ const LinksProp = ({ links }: LinksMenuProps) => {
   const pathname = usePathname();
 
   return (
-    <div className="flex flex-col gap-y-2 pt-3">
-      {links.map(({ link, linkName, icon }, index) => (
+    <nav className="flex flex-col items-center gap-2 ">
+      {links.map(({ link, label, icon }, index) => (
         <Link
           key={link}
           href={link}
           className={cn(
-            "transition-colors duration-300 flex py-2 px-2 rounded border-blue-400 border-b-2 ",
+            "flex w-full h-11 items-center justify-start rounded-xl hover:bg-accent px-4",
             {
-              "text-blue-700 bg-white hover:bg-blue-300": pathname === link,
+              "dark:bg-white/10 bg-black/10  font-semibold": pathname === link,
             }
           )}
         >
@@ -29,10 +29,11 @@ const LinksProp = ({ links }: LinksMenuProps) => {
             style={{ marginRight: "8px" }}
             className=""
           />
-          {linkName}
+          {label}
+          <span className="sr-only">{label}</span>
         </Link>
       ))}
-    </div>
+    </nav>
   );
 };
 
