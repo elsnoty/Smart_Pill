@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { ThemeProvider } from "@/Components/theme-provider";
+import { ThemeProvider } from "@/lib/theme-provider";
 
 export const metadata: Metadata = {
   title: { default: "Smart Pill", template: "%S | Smart Pill" },

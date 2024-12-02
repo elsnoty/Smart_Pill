@@ -1,5 +1,4 @@
 import Nav from "@/Components/NavBar/nav";
-import LinksMenu from "@/Components/SideMenu/links-menu";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (

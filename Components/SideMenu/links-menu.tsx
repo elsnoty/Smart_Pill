@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import Logo from "../../public/logo_pill.svg";
 import Image from "next/image";
-import { Links } from "@/models/LinksConfigure";
+import { Links } from "@/models/links-configure";
 import LinksProp from "./links-prop";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
@@ -14,6 +14,7 @@ const LinksMenu = () => {
   const toggleMenu = () => {
     setIsOpen((prev) => !prev);
   };
+
   return (
     <>
       <Icon

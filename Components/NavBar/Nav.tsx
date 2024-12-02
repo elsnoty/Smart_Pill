@@ -5,7 +5,7 @@ import LinksMenu from "../SideMenu/links-menu";
 
 const Nav = () => {
   return (
-    <nav className="px-5 py-3 bg-white dark:bg-[#334155] fixed w-full top-0 backdrop-filter bg-opacity-80 flex justify-end max-lg:justify-between items-end z-40">
+    <nav className=" flex md:justify-end justify-between   ">
       <LinksMenu />
       <div className="flex items-center justify-end space-x-4">
         <div className="relative w-full">

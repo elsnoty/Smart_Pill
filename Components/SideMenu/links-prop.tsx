@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import React from "react";
-import { LinksMenuProps } from "@/models/LinksConfigure";
+import { LinksMenuProps } from "@/models/links-configure";
 import { usePathname } from "next/navigation";
 import { Icon } from "@iconify/react";
 import { cn } from "@/lib/utils";
