@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import Logo from "../../public/logo_pill.svg";
+import Logo from "@/public/logo_pill.svg";
 import Image from "next/image";
 import { Links } from "@/models/links-configure";
 import LinksProp from "./links-prop";
@@ -24,7 +24,7 @@ const LinksMenu = () => {
       />
       <aside
         className={cn(
-          `fixed px-5 h-full py-4 bg-white/10 backdrop-blur-sm z-50 left-0 inset-y-0 w-[320px] transition-all`,
+          `fixed px-5 h-full py-4 bg-white/10 backdrop-blur-sm shadow-xl z-50 left-0 inset-y-0 w-[320px] transition-all duration-300 ease-in`,
           { "-left-96": isOpen }
         )}
       >
@@ -35,8 +35,19 @@ const LinksMenu = () => {
           className="cursor-pointer lg:hidden absolute right-8 top-8 "
           onClick={toggleMenu}
         />
-        <Link href={"/dashboard"} className="block w-fit">
-          <Image src={Logo} alt="logo" width={60} height={60} />
+        <Link
+          href={"/dashboard"}
+          className="flex items-center ml-[50px] lg:w-fit mb-12"
+        >
+          <Image
+            src={Logo}
+            alt="logo"
+            width={50}
+            height={50}
+            priority
+            className="size-14"
+          />
+          <h1 className={`text-2xl font-semibold ml-2`}>Smart Pill</h1>
         </Link>
         <LinksProp links={Links} />
       </aside>

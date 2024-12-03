@@ -7,7 +7,11 @@ interface breadcrumbs {
   active?: boolean;
 }
 
-export default function ({ breadcrumbs }: { breadcrumbs: breadcrumbs[] }) {
+export default function BreadCrumbs({
+  breadcrumbs,
+}: {
+  breadcrumbs: breadcrumbs[];
+}) {
   return (
     <nav aria-label="breadCrumbs" className="mb-6">
       <ol className="flex">

@@ -12,21 +12,21 @@ export const Links: LinksDetails[] = [
   {
     link: "/dashboard",
     label: "Dashboard",
-    icon: "carbon:dashboard",
+    icon: "duo-icons:dashboard",
   },
   {
     link: "/dashboard/doctor",
     label: "Doctor",
-    icon: "mdi:doctor",
+    icon: "solar:user-plus-bold-duotone",
   },
   {
     link: "dashboard/user",
     label: "User",
-    icon: "carbon:user-avatar",
+    icon: "solar:user-bold-duotone",
   },
   {
-    link: "dashboard/drug",
-    label: "Drug",
-    icon: "mdi:pill",
+    link: "dashboard/pills",
+    label: "Pills",
+    icon: "solar:pill-bold-duotone",
   },
 ];
