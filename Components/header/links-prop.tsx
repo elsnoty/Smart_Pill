@@ -1,18 +1,16 @@
-"use client";
 import Link from "next/link";
 import React from "react";
-import { LinksMenuProps } from "@/models/links-configure";
-import { usePathname } from "next/navigation";
 import { Icon } from "@iconify/react";
 import { cn } from "@/lib/utils";
-import BreadCrumbs from "../ui/beardcrumbs";
-import { generateBreadcrumbs } from "@/lib/ganerate-breadcrumbs";
+import { LinksDetails } from "@/models/links-configure";
 
-const LinksProp = ({ links }: LinksMenuProps) => {
-  const pathname = usePathname();
-
-  const breadcrumbs = generateBreadcrumbs({ links, pathname });
-
+const LinksProp = ({
+  links,
+  pathname,
+}: {
+  links: LinksDetails[];
+  pathname: string;
+}) => {
   return (
     <nav className="flex flex-col items-center gap-2">
       {links.map(({ link, label, icon }) => (
@@ -20,7 +18,7 @@ const LinksProp = ({ links }: LinksMenuProps) => {
           key={link}
           href={link}
           className={cn(
-            "flex w-full h-11 items-center justify-start rounded-xl hover:bg-accent px-4",
+            "flex w-full h-11 items-center justify-start rounded-xl hover:bg-accent pl-4",
             {
               "dark:bg-white/10 bg-black/10 font-medium": pathname === link,
             }
@@ -36,9 +34,6 @@ const LinksProp = ({ links }: LinksMenuProps) => {
           <span className="sr-only">{label}</span>
         </Link>
       ))}
-
-      {/* Render Breadcrumbs */}
-      <BreadCrumbs breadcrumbs={breadcrumbs} />
     </nav>
   );
 };

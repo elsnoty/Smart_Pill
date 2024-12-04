@@ -4,11 +4,7 @@ export interface LinksDetails {
   icon: string;
 }
 
-export interface LinksMenuProps {
-  links: LinksDetails[];
-}
-
-export const Links: LinksDetails[] = [
+export const links: LinksDetails[] = [
   {
     link: "/dashboard",
     label: "Dashboard",

@@ -9,6 +9,12 @@ export default {
   ],
   theme: {
     extend: {
+      width: {
+        navwidth: "var(--nav-width)",
+      },
+      padding: {
+        navpadding: "calc(var(--nav-width) + 32px)",
+      },
       colors: {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",

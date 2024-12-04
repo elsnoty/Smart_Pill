@@ -15,14 +15,14 @@ export function ToggleTheme() {
   if (!mounted) return null;
 
   return (
-    <div className="text-black">
+    <div>
       {theme === "light" ? (
         <motion.button
           whileHover={{ scale: 1.2, rotate: 45 }}
           key={"sun"}
           onClick={() => setTheme("dark")}
         >
-          <Icon icon="si:sun-line" />
+          <Icon icon="si:sun-line" className="text-2xl" />
         </motion.button>
       ) : (
         <motion.button
@@ -30,7 +30,7 @@ export function ToggleTheme() {
           key={"moon"}
           onClick={() => setTheme("light")}
         >
-          <Icon icon="line-md:moon-alt-loop" />
+          <Icon icon="line-md:moon-alt-loop" className="text-2xl" />
         </motion.button>
       )}
     </div>

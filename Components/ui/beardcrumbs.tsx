@@ -9,11 +9,13 @@ interface breadcrumbs {
 
 export default function BreadCrumbs({
   breadcrumbs,
+  className,
 }: {
   breadcrumbs: breadcrumbs[];
+  className?: string;
 }) {
   return (
-    <nav aria-label="breadCrumbs" className="mb-6">
+    <nav aria-label="breadCrumbs" className={cn("hidden lg:block", className)}>
       <ol className="flex">
         {breadcrumbs.map(({ label, href, active }, index) => (
           <li
