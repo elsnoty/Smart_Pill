@@ -1,10 +1,8 @@
 "use client";
-import React, { useRef, useState } from "react";
-import Logo from "@/public/logo_pill.svg";
-import Image from "next/image";
+import React, { useRef, useState, useEffect } from "react";
+import Logo from "@/Components/ui/logo";
 import { links } from "@/models/links-configure";
 import LinksProp from "./links-prop";
-import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import { usePathname } from "next/navigation";
@@ -18,13 +16,25 @@ const LinksMenu = () => {
 
   const [isOpen, setIsOpen] = useState(true);
 
-  const toggleMenu = (e: any) => {
-    if (!isOpen && !menuRef.current?.contains(e.target)) {
-      setIsOpen(true);
-    }
-  };
+  useEffect(() => {
+    const toggleMenu = (e: MouseEvent) => {
+      if (
+        !isOpen &&
+        menuRef.current &&
+        !menuRef.current.contains(e.target as HTMLElement)
+      ) {
+        setIsOpen(true);
+      }
+    };
 
-  document.addEventListener("mousedown", toggleMenu);
+    // Add event listener only on client-side
+    document.addEventListener("mousedown", toggleMenu);
+
+    // Cleanup event listener
+    return () => {
+      document.removeEventListener("mousedown", toggleMenu);
+    };
+  }, [isOpen]); // Depend on isOpen to ensure the event listener uses the latest state
 
   const breadcrumbs = generateBreadcrumbs({ links, pathname });
 
@@ -38,24 +48,11 @@ const LinksMenu = () => {
       <aside
         ref={menuRef}
         className={cn(
-          `fixed px-5 h-full py-4 bg-white/10 backdrop-blur-sm shadow-xl z-50 left-0 lg:left-auto inset-y-0 w-navwidth transition-all duration-300 ease-in`,
+          `fixed px-5 py-4 bg-white/10 backdrop-blur-md shadow-xl z-50 left-0 lg:left-auto inset-y-0 w-navwidth transition-all duration-300 ease-in flex flex-col`,
           { "-left-96": isOpen }
         )}
       >
-        <Link
-          href={"/dashboard"}
-          className="flex items-center ml-4 lg:w-fit mb-6"
-        >
-          <Image
-            src={Logo}
-            alt="logo"
-            width={50}
-            height={50}
-            priority
-            className="size-13"
-          />
-          <h1 className={`text-2xl font-semibold ml-2`}>Smart Pill</h1>
-        </Link>
+        <Logo href="/dashboard" />
         <LinksProp links={links} pathname={pathname} />
       </aside>
       <BreadCrumbs breadcrumbs={breadcrumbs} className="lg:pl-navpadding " />
