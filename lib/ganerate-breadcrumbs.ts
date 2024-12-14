@@ -1,4 +1,4 @@
-import { LinksDetails, LinksMenuProps } from "@/models/links-configure";
+import { LinksDetails } from "@/models/links-configure";
 
 export const generateBreadcrumbs = ({
   pathname,
