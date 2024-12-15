@@ -11,12 +11,14 @@ export const authConfig: NextAuthConfig = {
       const isOnLogin = nextUrl.pathname.startsWith("/login");
       const isOnRegister = nextUrl.pathname.startsWith("/register");
       const isOnDashboard = nextUrl.pathname.startsWith("/dashboard");
+      const isOnForgotPassowrd =
+        nextUrl.pathname.startsWith("/forgot-password");
 
       if (isLoggedIn && (isOnLogin || isOnRegister)) {
         return Response.redirect(new URL("/dashboard", nextUrl));
       }
 
-      if (isOnRegister || isOnLogin) {
+      if (isOnRegister || isOnLogin || isOnForgotPassowrd) {
         return true;
       }
 

@@ -15,6 +15,10 @@ export default {
       padding: {
         navpadding: "calc(var(--nav-width) + 32px)",
       },
+      fontFamily: {
+        oswald: ["var(--font-oswald)"],
+        dmmono: ["var(--font-dm-mono)"],
+      },
       colors: {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",

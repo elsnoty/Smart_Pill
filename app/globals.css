@@ -10,6 +10,17 @@ h1 {
   font-family: var(--font-oswald);
 }
 
+.text-gradient {
+  background-image: linear-gradient(
+    to right,
+    #60a5fa 0%,
+    #503be4 50%,
+    #1e40af 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;
