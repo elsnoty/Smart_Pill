@@ -2,14 +2,14 @@
 import React, { useRef, useState, useEffect } from "react";
 import Logo from "@/Components/ui/logo";
 import { links } from "@/models/links-configure";
-import LinksProp from "./links-prop";
+import { LinksProp } from "./links-prop";
 import { cn } from "@/lib/utils";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import { usePathname } from "next/navigation";
 import { generateBreadcrumbs } from "@/lib/ganerate-breadcrumbs";
 import BreadCrumbs from "../ui/beardcrumbs";
 
-const LinksMenu = () => {
+export function LinksMenu() {
   const pathname = usePathname();
 
   const menuRef = useRef<HTMLElement>(null);
@@ -52,12 +52,10 @@ const LinksMenu = () => {
           { "-left-96": isOpen }
         )}
       >
-        <Logo href="/dashboard" />
+        <Logo href="/dashboard" className="ml-4 lg:w-fit mb-6 " />
         <LinksProp links={links} pathname={pathname} />
       </aside>
       <BreadCrumbs breadcrumbs={breadcrumbs} className="lg:pl-navpadding " />
     </div>
   );
-};
-
-export default LinksMenu;
+}

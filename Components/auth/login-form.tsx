@@ -2,11 +2,11 @@ import { Icon } from "@iconify/react/dist/iconify.js";
 import Link from "next/link";
 import { Button, Checkbox, Input, Label } from "../ui";
 
-export default function LoginForm() {
+export function LoginForm() {
   return (
-    <form className="w-72 h-96 md:h-auto md:w-[45%] md:px-8 lg:px-12 space-y-5 ">
-      <h1 className="leading-6 md:text-[26px] lg:text-[34px] xl:text-[46px] font-semibold text-nowrap lg:mb-8">
-        Welcome back to <span className="text-gradient ">Smart Pill</span>
+    <form className="h-96 md:h-auto w-full lg:w-[45%] md:pr-8 lg:pr-12 space-y-4 ">
+      <h1 className="leading-6 md:text-[26px] lg:text-[34px] xl:text-[46px] font-semibold text-nowrap lg:mb-6 xl:mb-8 ">
+        Welcome back to <span className="text-gradient">Smart Pill</span>
       </h1>
       <div>
         <Label htmlFor="email">Email address</Label>
@@ -46,7 +46,9 @@ export default function LoginForm() {
         <div className="flex items-center justify-between mt-4">
           <div className="flex items-center gap-3 ">
             <Checkbox id="remember" />
-            <Label htmlFor="remember">Remember me</Label>
+            <Label htmlFor="remember" className="text-sm">
+              Remember me
+            </Label>
           </div>
           <Link
             href="/forgot-password"
@@ -57,11 +59,11 @@ export default function LoginForm() {
         </div>
         <Button className="w-full justify-center mt-5 h-11">Sign In</Button>
       </div>
-      <div className="flex items-center gap-2 leading-none">
+      <div className="flex items-center gap-2 leading-none text-sm font-medium">
         {`Don't have an account? `}
         <Link
           href={"/register"}
-          className="text-sm leading-none font-medium text-muted-foreground hover:text-accent-foreground transition-colors"
+          className="text-muted-foreground hover:text-accent-foreground transition-colors"
         >
           Sign Up
         </Link>

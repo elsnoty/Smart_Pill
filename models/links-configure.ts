@@ -1,8 +1,4 @@
-export interface LinksDetails {
-  link: string;
-  label: string;
-  icon: string;
-}
+import { LinksDetails } from "@/lib/definitions";
 
 export const links: LinksDetails[] = [
   {

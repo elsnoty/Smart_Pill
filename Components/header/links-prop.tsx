@@ -2,16 +2,17 @@ import Link from "next/link";
 import React from "react";
 import { Icon } from "@iconify/react";
 import { cn } from "@/lib/utils";
-import { LinksDetails } from "@/models/links-configure";
-import { Button } from "../ui/button";
 
-const LinksProp = ({
+import { Button } from "../ui/button";
+import { LinksDetails } from "@/lib/definitions";
+
+export function LinksProp({
   links,
   pathname,
 }: {
   links: LinksDetails[];
   pathname: string;
-}) => {
+}) {
   return (
     <>
       <nav className="flex flex-col items-center gap-2 ">
@@ -45,6 +46,4 @@ const LinksProp = ({
       </Button>
     </>
   );
-};
-
-export default LinksProp;
+}

@@ -1,4 +1,4 @@
-import LinksMenu from "@/Components/header/links-menu";
+import { LinksMenu } from "@/Components/header/links-menu";
 import { ToggleTheme } from "@/Components/header/toggle-theme";
 import { Icon } from "@iconify/react/dist/iconify.js";
 

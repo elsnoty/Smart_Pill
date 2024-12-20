@@ -1,5 +1,5 @@
 import { Input } from "../ui/input";
 
-export default function Search() {
+export function Search() {
   return <Input> </Input>;
 }
