@@ -5,10 +5,11 @@ import { DM_Mono, Oswald } from "next/font/google";
 
 const dm_mono = DM_Mono({
   weight: ["400", "500"],
+  subsets: ["latin"],
   variable: "--font-dm-mono",
 });
 
-const oswald = Oswald({ variable: "--font-oswald" });
+const oswald = Oswald({ variable: "--font-oswald", subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: { default: "Smart Pill", template: "%S | Smart Pill" },
