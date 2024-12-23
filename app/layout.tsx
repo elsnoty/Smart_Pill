@@ -6,6 +6,7 @@ import { DM_Mono, Oswald } from "next/font/google";
 const dm_mono = DM_Mono({
   weight: ["400", "500"],
   variable: "--font-dm-mono",
+  subsets:['latin']
 });
 
 const oswald = Oswald({ variable: "--font-oswald" });
