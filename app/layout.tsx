@@ -7,6 +7,7 @@ const dm_mono = DM_Mono({
   weight: ["400", "500"],
   subsets: ["latin"],
   variable: "--font-dm-mono",
+  subsets:['latin']
 });
 
 const oswald = Oswald({ variable: "--font-oswald", subsets: ["latin"] });
