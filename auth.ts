@@ -4,7 +4,6 @@ import { authConfig } from "./auth.config";
 import { getUser } from "./lib/queries";
 import { Role } from "./lib/definitions";
 import { signInValidation } from "./lib/zod";
-
 declare module "next-auth" {
   interface User {
     id?: string;
@@ -15,15 +14,14 @@ declare module "next-auth" {
   }
 
   interface Session {
-    user: {
-      id: string;
+    user?: {
+      id?: string;
       email: string;
       name?: string;
       role: Role;
     };
   }
 }
-
 export const { handlers, auth, signIn, signOut } = NextAuth({
   ...authConfig,
   debug: true,
@@ -38,29 +36,30 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
         const parsedCredentials = signInValidation.safeParse(credentials);
         if (parsedCredentials.success) {
           const { email, password } = parsedCredentials.data;
-          const user = await getUser(email, password);
+          const user = await getUser({ email, password });
 
-          if (!user) throw new Error("Invalid credentials.");
+          if (!user) return null;
 
+          console.log(user);
           return {
             id: user.id,
-            name: user.name,
+            name: user.userName,
             email: user.email,
             role: user.role,
             token: user.token,
           };
         }
 
-        throw new Error("Invalid credentials.");
+        return null;
       },
     }),
   ],
   callbacks: {
     jwt: async ({ account, token, user }) => {
       if (user && account?.provider === "credentials") {
-        token.sub = user.id;
         token.role = user.role;
-        token.accessToken = account.access_token;
+        token.accessToken = user.token;
+        console.log(token);
       }
       return token;
     },

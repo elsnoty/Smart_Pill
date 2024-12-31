@@ -1,10 +1,7 @@
-export enum Role {
-  ADMIN = "ADMIN",
-  USER = "USER",
-}
+export type Role = "ADMIN" | "USER" | null | undefined;
 export interface user {
   id: string;
-  name: string;
+  userName: string;
   email: string;
   role: Role;
   token: string;

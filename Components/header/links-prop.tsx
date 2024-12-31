@@ -2,9 +2,8 @@ import Link from "next/link";
 import React from "react";
 import { Icon } from "@iconify/react";
 import { cn } from "@/lib/utils";
-
-import { Button } from "../ui/button";
 import { LinksDetails } from "@/lib/definitions";
+import SignoutForm from "../auth/signout-fom";
 
 export function LinksProp({
   links,
@@ -36,14 +35,7 @@ export function LinksProp({
           </Link>
         ))}
       </nav>
-
-      <Button className="group min-h-11 mt-auto ">
-        <Icon
-          icon="uim:signout"
-          className="mr-2 bg-primary/10 p-1 box-content rounded-lg text-2xl group-hover:text-red-400 transition-colors"
-        />
-        Sign Out<span className="sr-only">sign out</span>
-      </Button>
+      <SignoutForm />
     </>
   );
 }

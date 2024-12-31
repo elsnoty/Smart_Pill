@@ -17,6 +17,7 @@ export default function Logo({
       href={href}
       className={cn("flex items-center h-fit", className)}
       {...props}
+      as={"image"}
     >
       <Image
         src={logo}

@@ -74,6 +74,7 @@ export function ImageSlider() {
               className=" object-contain bg-white"
               src={images[currentImage]}
               fill
+              priority
             />
           </motion.div>
         </AnimatePresence>

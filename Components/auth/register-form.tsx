@@ -1,41 +1,83 @@
+"use client";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import Link from "next/link";
-import { Button, Checkbox, Input, Label } from "../ui";
+import { Checkbox, Input, Label } from "../ui";
 import { BaseForm } from "./base-form";
+import { useRouter } from "next/navigation";
+import { useActionState, useEffect, useState } from "react";
+import { register, registerActionState } from "@/lib/actions";
+import SubmitButton from "./submit-button";
 
 export function RegisterForm() {
+  const router = useRouter();
+
+  const [fileds, setFields] = useState({ userName: "", email: "" });
+  const [isSuccessful, setIsSuccessful] = useState(false);
+
+  const initialState: registerActionState = {
+    status: "idle",
+    errors: undefined,
+  };
+  const [state, formAction, isPending] = useActionState<
+    registerActionState,
+    FormData
+  >(register, initialState);
+
+  useEffect(() => {
+    switch (state.status) {
+      case "failed":
+        console.error("invalid credentials!", state.errors);
+        break;
+      case "invalid_data":
+        console.error("Failed validating your submission!", state.errors);
+        break;
+      case "success":
+        setIsSuccessful(true);
+        router.push("/dashboard");
+        break;
+      default:
+        break;
+    }
+  }, [router, state.status]);
+
+  const handleSubmit = (formData: FormData) => {
+    setFields({
+      userName: formData.get("username") as string,
+      email: formData.get("email") as string,
+    });
+    formAction(formData);
+  };
+  console.log(state);
+
   return (
     <BaseForm title="Welcome" subtitle="Please Sign up to your account">
-      <form className="space-y-2 md:space-y-4">
-        <div className="flex justify-between w-full gap-4">
-          <div className="w-full">
-            <Label htmlFor="first-name">First Name</Label>
-            <div className="relative ">
-              <Input
-                autoComplete="first-name"
-                id="first-name"
-                name="first-name"
-                type="text"
-                placeholder="Enter your first name"
-                required
-                className="peer h-12"
-              />
-            </div>
+      <form action={handleSubmit} className="space-y-2">
+        <div>
+          <Label htmlFor="username">UserName</Label>
+          <div className="relative ">
+            <Input
+              id="username"
+              name="username"
+              type="text"
+              placeholder="Enter your Username"
+              className="peer h-12"
+              autoFocus
+              autoComplete="username"
+              defaultValue={fileds.userName}
+            />
           </div>
-          <div className="w-full">
-            <Label htmlFor="second-name">Second Name</Label>
-            <div className="relative">
-              <Input
-                autoComplete="second-name"
-                id="second-name"
-                name="second-name"
-                type="text"
-                placeholder="Enter your second name"
-                required
-                className="peer h-12"
-              />
+          {state.errors?.userName && (
+            <div>
+              {state.errors.userName.map((error, index) => (
+                <p
+                  className="text-xs font-thin text-red-500 "
+                  key={index + error}
+                >
+                  {error}
+                </p>
+              ))}
             </div>
-          </div>
+          )}
         </div>
         <div>
           <Label htmlFor="email">Email address</Label>
@@ -45,14 +87,28 @@ export function RegisterForm() {
               name="email"
               type="email"
               placeholder="Enter your email address"
-              required
               className="peer h-12"
+              autoFocus
+              autoComplete="email"
+              defaultValue={fileds.email}
             />
             <Icon
               icon="ic:twotone-email"
               className="size-6 absolute top-1/2 right-3 -translate-y-1/2 transition-colors peer-focus:text-muted-foreground"
             />
           </div>
+          {state.errors?.email && (
+            <div>
+              {state.errors.email.map((error, index) => (
+                <p
+                  className="text-xs font-thin text-red-500 "
+                  key={index + error}
+                >
+                  {error}
+                </p>
+              ))}
+            </div>
+          )}
         </div>
         <div>
           <Label htmlFor="password">Password</Label>
@@ -63,13 +119,24 @@ export function RegisterForm() {
               type="password"
               placeholder="Enter your password"
               className="peer h-12"
-              required
             />
             <Icon
               icon="solar:lock-password-bold-duotone"
               className="size-6 absolute top-1/2 right-3 -translate-y-1/2 transition-colors peer-focus:text-muted-foreground"
             />
           </div>
+          {state.errors?.password && (
+            <div>
+              {state.errors.password.map((error, index) => (
+                <p
+                  className="text-xs font-thin text-red-500 "
+                  key={index + error}
+                >
+                  {error}
+                </p>
+              ))}
+            </div>
+          )}
         </div>
         <div>
           <div className="flex items-center justify-between mt-4">
@@ -86,7 +153,10 @@ export function RegisterForm() {
               Forgot password
             </Link>
           </div>
-          <Button className="w-full justify-center mt-5 h-11">Sign Up</Button>
+
+          <SubmitButton isSuccessful={isSuccessful} isPending={isPending}>
+            Sign Up
+          </SubmitButton>
         </div>
         <div className="flex items-center gap-2 leading-none text-sm font-medium">
           {`Already have an accoutn ? `}
