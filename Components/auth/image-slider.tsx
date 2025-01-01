@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import { authImageSlider } from "@/models/image";
+import { authImageSlider } from "@/models/images";
 import { AnimatePresence, motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 

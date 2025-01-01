@@ -1,4 +1,4 @@
-import { LinksDetails } from "@/lib/definitions";
+import { LinksDetails } from "@/lib/types/definitions";
 
 export const links: LinksDetails[] = [
   {

@@ -1,6 +1,6 @@
 import { z } from "zod";
-import { user } from "./definitions";
-import { signInValidation, signUpValidation } from "./zod";
+import { user } from "../types/definitions";
+import { signInValidation, signUpValidation } from "../types/zod";
 
 type loginUser = z.infer<typeof signInValidation>;
 export const getUser = async ({

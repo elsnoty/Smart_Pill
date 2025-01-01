@@ -5,7 +5,7 @@ import { Checkbox, Input, Label } from "../ui";
 import { BaseForm } from "./base-form";
 import { useRouter } from "next/navigation";
 import { useActionState, useEffect, useState } from "react";
-import { register, registerActionState } from "@/lib/actions";
+import { register, registerActionState } from "@/lib/server/actions";
 import SubmitButton from "./submit-button";
 
 export function RegisterForm() {
@@ -31,6 +31,9 @@ export function RegisterForm() {
       case "invalid_data":
         console.error("Failed validating your submission!", state.errors);
         break;
+      case "user_exists":
+        console.error("User already exists!", state.errors);
+        break;
       case "success":
         setIsSuccessful(true);
         router.push("/dashboard");
@@ -38,7 +41,7 @@ export function RegisterForm() {
       default:
         break;
     }
-  }, [router, state.status]);
+  }, [router, state.errors, state.status]);
 
   const handleSubmit = (formData: FormData) => {
     setFields({
@@ -47,7 +50,6 @@ export function RegisterForm() {
     });
     formAction(formData);
   };
-  console.log(state);
 
   return (
     <BaseForm title="Welcome" subtitle="Please Sign up to your account">

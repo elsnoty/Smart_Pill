@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { ThemeProvider } from "@/lib/theme-provider";
 import { DM_Mono, Oswald } from "next/font/google";
+import { ToastProvider } from "@/lib/context/toast-context";
 
 const dm_mono = DM_Mono({
   weight: ["400", "500"],
@@ -26,7 +27,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={`${dm_mono.variable} ${oswald.variable} antialiased`}>
         <ThemeProvider attribute={"class"} enableSystem>
-          {children}
+          <ToastProvider>{children}</ToastProvider>
         </ThemeProvider>
       </body>
     </html>

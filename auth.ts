@@ -1,9 +1,9 @@
 import NextAuth from "next-auth";
 import Credentials from "next-auth/providers/credentials";
 import { authConfig } from "./auth.config";
-import { getUser } from "./lib/queries";
-import { Role } from "./lib/definitions";
-import { signInValidation } from "./lib/zod";
+import { getUser } from "./lib/server/queries";
+import { Role } from "./lib/types/definitions";
+import { signInValidation } from "./lib/types/zod";
 declare module "next-auth" {
   interface User {
     id?: string;
@@ -40,10 +40,9 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
 
           if (!user) return null;
 
-          console.log(user);
           return {
             id: user.id,
-            name: user.userName,
+            name: user.name,
             email: user.email,
             role: user.role,
             token: user.token,
@@ -59,7 +58,6 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
       if (user && account?.provider === "credentials") {
         token.role = user.role;
         token.accessToken = user.token;
-        console.log(token);
       }
       return token;
     },

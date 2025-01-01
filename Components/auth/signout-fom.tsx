@@ -1,7 +1,7 @@
 import { Button } from "../ui";
 import Form from "next/form";
 import { Icon } from "@iconify/react/dist/iconify.js";
-import { signout } from "@/lib/actions";
+import { signout } from "@/lib/server/actions";
 
 export default function SignoutForm() {
   return (

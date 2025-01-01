@@ -1,10 +1,10 @@
 "use server";
 import { signIn, signOut } from "@/auth";
-import { signInValidation, signUpValidation } from "./zod";
+import { signInValidation, signUpValidation } from "../types/zod";
 import { AuthError } from "next-auth";
 import { createUser } from "./queries";
 
-interface errors {
+export interface errors {
   errors?: {
     userName?: string[];
     email?: string[];

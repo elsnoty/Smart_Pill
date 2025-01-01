@@ -4,11 +4,14 @@ import Link from "next/link";
 import { Checkbox, Input, Label } from "../ui";
 import { BaseForm } from "./base-form";
 import { useActionState, useEffect, useState } from "react";
-import { login, loginActionState } from "@/lib/actions";
+import { login, loginActionState } from "@/lib/server/actions";
 import { useRouter } from "next/navigation";
 import SubmitButton from "./submit-button";
+import { useToast } from "@/lib/context/toast-context";
 
 export function LoginForm() {
+  const { addToast } = useToast();
+
   const router = useRouter();
 
   const [email, setEmail] = useState("");
@@ -26,15 +29,31 @@ export function LoginForm() {
 
   // handle form state
   useEffect(() => {
-    if (state.status === "failed") {
-      console.error("Invalid credentials!", state.errors);
-    } else if (state.status === "invalid_data") {
-      console.error("Failed validating your submission!", state.errors);
-    } else if (state.status === "success") {
-      setIsSuccessful(true);
-      router.push("/dashboard");
+    switch (state.status) {
+      case "failed":
+        addToast({
+          message: "Invalid credentials please try again!",
+          type: "error",
+        });
+        break;
+      case "invalid_data":
+        addToast({
+          message: "Invalid data please try again!",
+          type: "warning",
+        });
+        break;
+      case "success":
+        addToast({
+          message: "Successfully logged in!",
+          type: "success",
+        });
+        setIsSuccessful(true);
+        router.push("/dashboard");
+        break;
+      default:
+        break;
     }
-  }, [state.status, router]);
+  }, [router, state.errors, state.status]);
 
   const handleSubmit = (formData: FormData) => {
     setEmail(formData.get("email") as string);
@@ -81,7 +100,7 @@ export function LoginForm() {
             <Input
               id="password"
               name="password"
-              type="password"
+              type="text"
               placeholder="Enter your password"
               className="peer h-12"
             />

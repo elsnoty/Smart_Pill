@@ -1,4 +1,4 @@
-import { LinksDetails } from "./definitions";
+import { LinksDetails } from "./types/definitions";
 
 export const generateBreadcrumbs = ({
   pathname,

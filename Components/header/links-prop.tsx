@@ -2,7 +2,7 @@ import Link from "next/link";
 import React from "react";
 import { Icon } from "@iconify/react";
 import { cn } from "@/lib/utils";
-import { LinksDetails } from "@/lib/definitions";
+import { LinksDetails } from "@/lib/types/definitions";
 import SignoutForm from "../auth/signout-fom";
 
 export function LinksProp({
