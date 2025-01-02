@@ -1,11 +1,16 @@
 import { ImageSlider } from "@/Components/auth/image-slider";
 import { LoginForm } from "@/Components/auth/login-form";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Login",
+};
 
 export default function Page() {
   return (
-    <section className="h-screen md:p-8 lg:p-12 flex justify-center md:justify-between items-center bg-gradient-to-tr from-secondary via-background to-secondary">
+    <>
       <LoginForm />
       <ImageSlider />
-    </section>
+    </>
   );
 }

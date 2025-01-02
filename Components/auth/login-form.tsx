@@ -100,7 +100,7 @@ export function LoginForm() {
             <Input
               id="password"
               name="password"
-              type="password"
+              type="text"
               placeholder="Enter your password"
               className="peer h-12"
             />

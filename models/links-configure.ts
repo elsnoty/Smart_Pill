@@ -12,12 +12,12 @@ export const links: LinksDetails[] = [
     icon: "solar:user-plus-bold-duotone",
   },
   {
-    link: "dashboard/user",
+    link: "/dashboard/user",
     label: "User",
     icon: "solar:user-bold-duotone",
   },
   {
-    link: "dashboard/pills",
+    link: "/dashboard/pills",
     label: "Pills",
     icon: "solar:pill-bold-duotone",
   },
