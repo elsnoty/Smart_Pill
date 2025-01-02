@@ -7,8 +7,11 @@ import { useRouter } from "next/navigation";
 import { useActionState, useEffect, useState } from "react";
 import { register, registerActionState } from "@/lib/server/actions";
 import SubmitButton from "./submit-button";
+import { useToast } from "@/lib/context/toast-context";
 
 export function RegisterForm() {
+  const { addToast } = useToast();
+
   const router = useRouter();
 
   const [fileds, setFields] = useState({ userName: "", email: "" });
@@ -23,25 +26,39 @@ export function RegisterForm() {
     FormData
   >(register, initialState);
 
+  // handle form state
   useEffect(() => {
     switch (state.status) {
       case "failed":
-        console.error("invalid credentials!", state.errors);
+        addToast({
+          message: "Invalid credentials please try again!",
+          type: "error",
+        });
         break;
       case "invalid_data":
-        console.error("Failed validating your submission!", state.errors);
+        addToast({
+          message: "Invalid data please try again!",
+          type: "warning",
+        });
         break;
       case "user_exists":
-        console.error("User already exists!", state.errors);
+        addToast({
+          message: "User already exists",
+          type: "warning",
+        });
         break;
       case "success":
+        addToast({
+          message: "Successfully logged in!",
+          type: "success",
+        });
         setIsSuccessful(true);
         router.push("/dashboard");
         break;
       default:
         break;
     }
-  }, [router, state.errors, state.status]);
+  }, [router, state.errors, state.status, addToast]);
 
   const handleSubmit = (formData: FormData) => {
     setFields({

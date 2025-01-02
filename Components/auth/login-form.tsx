@@ -53,7 +53,7 @@ export function LoginForm() {
       default:
         break;
     }
-  }, [router, state.errors, state.status]);
+  }, [router, state.errors, state.status, addToast]);
 
   const handleSubmit = (formData: FormData) => {
     setEmail(formData.get("email") as string);
@@ -100,7 +100,7 @@ export function LoginForm() {
             <Input
               id="password"
               name="password"
-              type="text"
+              type="password"
               placeholder="Enter your password"
               className="peer h-12"
             />
