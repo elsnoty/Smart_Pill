@@ -2,7 +2,7 @@ import { NextAuthConfig } from "next-auth";
 
 export const authConfig: NextAuthConfig = {
   pages: {
-    signIn: "/login",
+    signIn: "/dashboard",
   },
   providers: [],
   callbacks: {
@@ -23,8 +23,7 @@ export const authConfig: NextAuthConfig = {
       }
 
       if (isOnDashboard) {
-        if (isLoggedIn) return true;
-        return false;
+        return true;
       }
 
       if (isLoggedIn) {
