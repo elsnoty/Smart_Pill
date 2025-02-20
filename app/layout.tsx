@@ -3,8 +3,6 @@ import "./globals.css";
 import { ThemeProvider } from "@/lib/theme-provider";
 import { DM_Mono, Oswald } from "next/font/google";
 import { ToastProvider } from "@/lib/context/toast-context";
-import { SpeedInsights } from "@vercel/speed-insights/next";
-import { Analytics } from "@vercel/analytics/next";
 
 const dm_mono = DM_Mono({
   weight: ["400", "500"],
@@ -31,8 +29,6 @@ export default function RootLayout({
         <ThemeProvider attribute={"class"} enableSystem>
           <ToastProvider>{children}</ToastProvider>
         </ThemeProvider>
-        <SpeedInsights />
-        <Analytics />
       </body>
     </html>
   );
