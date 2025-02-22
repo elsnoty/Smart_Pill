@@ -14,21 +14,21 @@ export function LinksProp({
 }) {
   return (
     <>
-      <nav className="flex flex-col items-center gap-2 ">
+      <nav className="flex flex-col items-center gap-2">
         {links.map(({ link, label, icon }) => (
           <Link
             key={link}
             href={link}
             className={cn(
-              "flex w-full min-h-11 items-center rounded-xl hover:bg-accent pl-4",
+              "flex min-h-11 w-full items-center rounded-xl pl-4 hover:bg-accent",
               {
-                "dark:bg-white/10 bg-black/10 font-medium": pathname === link,
-              }
+                "bg-black/10 font-medium dark:bg-white/10": pathname === link,
+              },
             )}
           >
             <Icon
               icon={icon}
-              className="mr-2 bg-primary/10 p-1 box-content rounded-lg text-2xl"
+              className="mr-2 box-content rounded-lg bg-primary/10 p-1 text-2xl"
             />
             {label}
             <span className="sr-only">{label}</span>

@@ -18,7 +18,7 @@ export interface loginActionState extends errors {
 
 export async function login(
   prevState: loginActionState,
-  formData: FormData
+  formData: FormData,
 ): Promise<loginActionState> {
   try {
     const validateFields = signInValidation.safeParse({
@@ -63,7 +63,7 @@ export interface registerActionState extends errors {
 
 export const register = async (
   prevState: registerActionState,
-  formData: FormData
+  formData: FormData,
 ): Promise<registerActionState> => {
   try {
     const validateFields = signUpValidation.safeParse({

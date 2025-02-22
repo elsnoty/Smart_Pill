@@ -92,7 +92,8 @@ h1 {
     visibility: hidden;
   }
 
-  .print-section, .print-section * {
+  .print-section,
+  .print-section * {
     visibility: visible;
   }
 
@@ -103,4 +104,3 @@ h1 {
     width: 100%;
   }
 }
-

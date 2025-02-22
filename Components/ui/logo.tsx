@@ -15,7 +15,7 @@ export default function Logo({
   return (
     <Link
       href={href}
-      className={cn("flex items-center h-fit", className)}
+      className={cn("flex h-fit items-center", className)}
       {...props}
       as={"image"}
     >
@@ -27,7 +27,7 @@ export default function Logo({
         priority
         className="size-14"
       />
-      <h1 className={`text-2xl font-semibold ml-2 text-foreground`}>
+      <h1 className={`ml-2 text-2xl font-semibold text-foreground`}>
         Smart Pill
       </h1>
     </Link>

@@ -22,11 +22,11 @@ export function ToastProvider({ children }: { children: React.ReactNode }) {
       // Remove toast after the duration
       setTimeout(() => {
         setToasts((prevToasts) =>
-          prevToasts.filter((toast) => toast.id !== id)
+          prevToasts.filter((toast) => toast.id !== id),
         );
       }, duration);
     },
-    []
+    [],
   );
 
   const removeToast = useCallback((id: number) => {

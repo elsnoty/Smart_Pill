@@ -15,7 +15,7 @@ export default function SubmitButton({
       type={isPending ? "button" : "submit"}
       disabled={isPending || isSuccessful}
       aria-disabled={isPending || isSuccessful}
-      className="w-full justify-center mt-5 h-11"
+      className="mt-5 h-11 w-full justify-center"
     >
       {isPending || isSuccessful ? (
         <span>

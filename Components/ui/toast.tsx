@@ -85,8 +85,8 @@ const Toast = ({ message, type = "info" }: ToastProps) => {
   return (
     <div
       className={cn(
-        "min-w-[200px] rounded-lg border  shadow-lg backdrop-blur px-4 md:px-6 py-3",
-        ToastType[type]?.bgColor || ToastType.info.bgColor
+        "min-w-[200px] rounded-lg border px-4 py-3 shadow-lg backdrop-blur md:px-6",
+        ToastType[type]?.bgColor || ToastType.info.bgColor,
       )}
     >
       <div className="flex items-center gap-3">

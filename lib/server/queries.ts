@@ -17,7 +17,7 @@ export const getUser = async ({
           Accept: "application/json",
         },
         body: JSON.stringify({ email, password }),
-      }
+      },
     );
 
     if (!response.ok) {
@@ -50,7 +50,7 @@ export const createUser = async ({
         },
         credentials: "include", // Include credentials if needed
         body: JSON.stringify({ userName, email, password, role }),
-      }
+      },
     );
 
     if (!response.ok) {

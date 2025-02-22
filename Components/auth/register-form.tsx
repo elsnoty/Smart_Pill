@@ -73,7 +73,7 @@ export function RegisterForm() {
       <form action={handleSubmit} className="space-y-2">
         <div>
           <Label htmlFor="username">UserName</Label>
-          <div className="relative ">
+          <div className="relative">
             <Input
               id="username"
               name="username"
@@ -89,7 +89,7 @@ export function RegisterForm() {
             <div>
               {state.errors.userName.map((error, index) => (
                 <p
-                  className="text-xs font-thin text-red-500 "
+                  className="text-xs font-thin text-red-500"
                   key={index + error}
                 >
                   {error}
@@ -113,14 +113,14 @@ export function RegisterForm() {
             />
             <Icon
               icon="ic:twotone-email"
-              className="size-6 absolute top-1/2 right-3 -translate-y-1/2 transition-colors peer-focus:text-muted-foreground"
+              className="absolute right-3 top-1/2 size-6 -translate-y-1/2 transition-colors peer-focus:text-muted-foreground"
             />
           </div>
           {state.errors?.email && (
             <div>
               {state.errors.email.map((error, index) => (
                 <p
-                  className="text-xs font-thin text-red-500 "
+                  className="text-xs font-thin text-red-500"
                   key={index + error}
                 >
                   {error}
@@ -141,14 +141,14 @@ export function RegisterForm() {
             />
             <Icon
               icon="solar:lock-password-bold-duotone"
-              className="size-6 absolute top-1/2 right-3 -translate-y-1/2 transition-colors peer-focus:text-muted-foreground"
+              className="absolute right-3 top-1/2 size-6 -translate-y-1/2 transition-colors peer-focus:text-muted-foreground"
             />
           </div>
           {state.errors?.password && (
             <div>
               {state.errors.password.map((error, index) => (
                 <p
-                  className="text-xs font-thin text-red-500 "
+                  className="text-xs font-thin text-red-500"
                   key={index + error}
                 >
                   {error}
@@ -158,8 +158,8 @@ export function RegisterForm() {
           )}
         </div>
         <div>
-          <div className="flex items-center justify-between mt-4">
-            <div className="flex items-center gap-3 ">
+          <div className="mt-4 flex items-center justify-between">
+            <div className="flex items-center gap-3">
               <Checkbox id="remember" />
               <Label htmlFor="remember" className="text-sm">
                 Remember me
@@ -167,7 +167,7 @@ export function RegisterForm() {
             </div>
             <Link
               href="/forgot-password"
-              className="text-sm font-medium leading-none text-muted-foreground hover:text-accent-foreground transition-colors"
+              className="text-sm font-medium leading-none text-muted-foreground transition-colors hover:text-accent-foreground"
             >
               Forgot password
             </Link>
@@ -177,11 +177,11 @@ export function RegisterForm() {
             Sign Up
           </SubmitButton>
         </div>
-        <div className="flex items-center gap-2 leading-none text-sm font-medium">
+        <div className="flex items-center gap-2 text-sm font-medium leading-none">
           {`Already have an accoutn ? `}
           <Link
             href={"/login"}
-            className="text-muted-foreground hover:text-accent-foreground transition-colors"
+            className="text-muted-foreground transition-colors hover:text-accent-foreground"
           >
             Sign In
           </Link>

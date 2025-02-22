@@ -57,7 +57,7 @@ export function ImageSlider() {
 
   return (
     isMdScreen && (
-      <div className="relative hidden md:block w-full md:h-[calc(100vh-2rem)] lg:h-[calc(100vh-3rem)] lg:w-[65%] rounded-lg overflow-hidden">
+      <div className="relative hidden w-full overflow-hidden rounded-lg md:block md:h-[calc(100vh-2rem)] lg:h-[calc(100vh-3rem)] lg:w-[65%]">
         {/* image slider */}
         <AnimatePresence initial={false} mode="sync">
           <motion.div
@@ -67,27 +67,27 @@ export function ImageSlider() {
             initial="entry"
             animate="animate"
             exit="exit"
-            className="absolute w-full h-full"
+            className="absolute h-full w-full"
           >
             <Image
               alt="pills within a pill container"
-              className=" object-contain bg-white"
+              className="bg-white object-contain"
               src={images[currentImage]}
               fill
               priority
             />
           </motion.div>
         </AnimatePresence>
-        <div className="relative h-full flex flex-col justify-end z-10">
+        <div className="relative z-10 flex h-full flex-col justify-end">
           <div>
-            <p className="text-white mt-10 text-lg lg:text-2xl font-medium capitalize px-8 lg:px-14 mb-10">
+            <p className="mb-10 mt-10 px-8 text-lg font-medium capitalize text-white lg:px-14 lg:text-2xl">
               Load your pills and forget about them — SmartPill takes care of
               the rest.
             </p>
             <div
               role="region"
               aria-label="Image carousel"
-              className="flex w-full justify-center mb-10"
+              className="mb-10 flex w-full justify-center"
             >
               {images.map((_, index) => (
                 <div
@@ -95,10 +95,10 @@ export function ImageSlider() {
                   key={index}
                   aria-label={`Go to image ${index + 1} of ${images.length}`}
                   className={cn(
-                    `w-4 h-2 rounded-sm transition-all duration-500 mx-1 cursor-pointer bg-gray-300`,
+                    `mx-1 h-2 w-4 cursor-pointer rounded-sm bg-gray-300 transition-all duration-500`,
                     {
-                      "bg-white w-8": index === currentImage,
-                    }
+                      "w-8 bg-white": index === currentImage,
+                    },
                   )}
                   onClick={() => setCurrentImage(index)}
                 />
@@ -107,7 +107,7 @@ export function ImageSlider() {
           </div>
         </div>
         {/* black overaly */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent z-0" />
+        <div className="absolute inset-0 z-0 bg-gradient-to-t from-black to-transparent" />
       </div>
     )
   );

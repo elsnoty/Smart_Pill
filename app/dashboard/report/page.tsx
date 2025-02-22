@@ -3,7 +3,15 @@
 import { Button } from "@/Components/ui/button";
 import { Card, CardContent } from "@/Components/ui/card";
 import React from "react";
-import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer, Legend } from "recharts";
+import {
+  LineChart,
+  Line,
+  XAxis,
+  YAxis,
+  Tooltip,
+  ResponsiveContainer,
+  Legend,
+} from "recharts";
 
 const reportData = {
   user: {
@@ -40,31 +48,49 @@ const handlePrint = () => {
 
 const UserReport = () => {
   return (
-    <div className="p-6 print-section">
-      <h1 className="text-2xl font-bold mb-4 text-blue-700">User Report</h1>
+    <div className="print-section p-6">
+      <h1 className="mb-4 text-2xl font-bold text-blue-700">User Report</h1>
 
       {/* User Details Card */}
       <Card className="mb-4 p-4">
         <CardContent>
-          <p><strong>Patient:</strong> {reportData.user.name}</p>
-          <p><strong>Doctor:</strong> {reportData.user.doctor}</p>
-          <p><strong>Medicine:</strong> {reportData.user.medicine}</p>
-          <p><strong>Missed Doses:</strong> <span className="text-red-500">{reportData.user.missedDoses}</span></p>
-          <p><strong>Adherence:</strong> {reportData.user.adherence}%</p>
-          <p><strong>Comment:</strong> {reportData.user.comment}</p>
+          <p>
+            <strong>Patient:</strong> {reportData.user.name}
+          </p>
+          <p>
+            <strong>Doctor:</strong> {reportData.user.doctor}
+          </p>
+          <p>
+            <strong>Medicine:</strong> {reportData.user.medicine}
+          </p>
+          <p>
+            <strong>Missed Doses:</strong>{" "}
+            <span className="text-red-500">{reportData.user.missedDoses}</span>
+          </p>
+          <p>
+            <strong>Adherence:</strong> {reportData.user.adherence}%
+          </p>
+          <p>
+            <strong>Comment:</strong> {reportData.user.comment}
+          </p>
         </CardContent>
       </Card>
 
       {/* Patient Progress Chart */}
       <Card className="mb-4 p-4">
         <CardContent>
-          <h2 className="text-lg font-semibold mb-2">Patient Progress</h2>
+          <h2 className="mb-2 text-lg font-semibold">Patient Progress</h2>
           <ResponsiveContainer width="100%" height={250}>
             <LineChart data={reportData.progress}>
               <XAxis dataKey="date" />
               <YAxis />
               <Tooltip />
-              <Line type="monotone" dataKey="score" stroke="#3b82f6" strokeWidth={2} />
+              <Line
+                type="monotone"
+                dataKey="score"
+                stroke="#3b82f6"
+                strokeWidth={2}
+              />
             </LineChart>
           </ResponsiveContainer>
         </CardContent>
@@ -73,15 +99,29 @@ const UserReport = () => {
       {/* Blood Pressure Chart */}
       <Card className="mb-4 p-4">
         <CardContent>
-          <h2 className="text-lg font-semibold mb-2">Blood Pressure (Systolic & Diastolic)</h2>
+          <h2 className="mb-2 text-lg font-semibold">
+            Blood Pressure (Systolic & Diastolic)
+          </h2>
           <ResponsiveContainer width="100%" height={250}>
             <LineChart data={reportData.bloodPressure}>
               <XAxis dataKey="date" />
               <YAxis />
               <Tooltip />
               <Legend />
-              <Line type="monotone" dataKey="systolic" stroke="#ef4444" strokeWidth={2} name="Systolic" />
-              <Line type="monotone" dataKey="diastolic" stroke="#10b981" strokeWidth={2} name="Diastolic" />
+              <Line
+                type="monotone"
+                dataKey="systolic"
+                stroke="#ef4444"
+                strokeWidth={2}
+                name="Systolic"
+              />
+              <Line
+                type="monotone"
+                dataKey="diastolic"
+                stroke="#10b981"
+                strokeWidth={2}
+                name="Diastolic"
+              />
             </LineChart>
           </ResponsiveContainer>
         </CardContent>
@@ -90,13 +130,18 @@ const UserReport = () => {
       {/* Blood Sugar Chart */}
       <Card className="p-4">
         <CardContent>
-          <h2 className="text-lg font-semibold mb-2">Blood Sugar Levels</h2>
+          <h2 className="mb-2 text-lg font-semibold">Blood Sugar Levels</h2>
           <ResponsiveContainer width="100%" height={250}>
             <LineChart data={reportData.bloodSugar}>
               <XAxis dataKey="date" />
               <YAxis />
               <Tooltip />
-              <Line type="monotone" dataKey="sugar" stroke="#f59e0b" strokeWidth={2} />
+              <Line
+                type="monotone"
+                dataKey="sugar"
+                stroke="#f59e0b"
+                strokeWidth={2}
+              />
             </LineChart>
           </ResponsiveContainer>
         </CardContent>
@@ -104,7 +149,10 @@ const UserReport = () => {
 
       {/* Print Button */}
       <div className="mt-5">
-        <Button onClick={handlePrint} className="bg-blue-600 hover:bg-blue-700 text-white flex items-center gap-2">
+        <Button
+          onClick={handlePrint}
+          className="flex items-center gap-2 bg-blue-600 text-white hover:bg-blue-700"
+        >
           🖨️ Print Report
         </Button>
       </div>

@@ -22,7 +22,7 @@ export default function BreadCrumbs({
             aria-current={active}
             key={href}
             className={cn(
-              active ? "text-gray-900 dark:text-gray-300" : "text-gray-500 "
+              active ? "text-gray-900 dark:text-gray-300" : "text-gray-500",
             )}
           >
             <Link href={href}>{label}</Link>

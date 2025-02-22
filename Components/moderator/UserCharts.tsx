@@ -1,6 +1,20 @@
-'use client'
-import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer, BarChart, XAxis, YAxis, CartesianGrid, Bar, Legend, LineChart, Line } from "recharts";
-import { Card, CardContent } from "../ui/card"; 
+"use client";
+import {
+  PieChart,
+  Pie,
+  Cell,
+  Tooltip,
+  ResponsiveContainer,
+  BarChart,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Bar,
+  Legend,
+  LineChart,
+  Line,
+} from "recharts";
+import { Card, CardContent } from "../ui/card";
 
 // Sample data
 const adherenceData = [
@@ -28,11 +42,13 @@ const COLORS = ["#82ca9d", "#ff726f"];
 
 const DashboardCharts = () => {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 p-4">
+    <div className="grid grid-cols-1 gap-6 p-4 md:grid-cols-3">
       {/* Pie Chart for Medicine Adherence */}
       <Card>
         <CardContent>
-          <h2 className="text-xl font-bold mb-2 text-green-700">Medicine Adherence</h2>
+          <h2 className="mb-2 text-xl font-bold text-green-700">
+            Medicine Adherence
+          </h2>
           <ResponsiveContainer width="100%" height={300}>
             <PieChart>
               <Pie
@@ -45,7 +61,10 @@ const DashboardCharts = () => {
                 label
               >
                 {adherenceData.map((entry, index) => (
-                  <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]}/>
+                  <Cell
+                    key={`cell-${index}`}
+                    fill={COLORS[index % COLORS.length]}
+                  />
                 ))}
               </Pie>
               <Tooltip />
@@ -57,7 +76,9 @@ const DashboardCharts = () => {
       {/* Bar Chart for Weekly User Adherence */}
       <Card>
         <CardContent>
-          <h2 className="text-xl font-bold mb-2 text-blue-700">Weekly Adherence Overview</h2>
+          <h2 className="mb-2 text-xl font-bold text-blue-700">
+            Weekly Adherence Overview
+          </h2>
           <ResponsiveContainer width="100%" height={300}>
             <BarChart data={userAdherenceData}>
               <CartesianGrid strokeDasharray="3 3" />
@@ -74,7 +95,9 @@ const DashboardCharts = () => {
       {/* Line Chart for Weekly Comparison */}
       <Card>
         <CardContent>
-          <h2 className="text-xl font-bold mb-2 text-purple-700">Weekly Adherence Comparison</h2>
+          <h2 className="mb-2 text-xl font-bold text-purple-700">
+            Weekly Adherence Comparison
+          </h2>
           <ResponsiveContainer width="100%" height={300}>
             <LineChart data={weeklyComparisonData}>
               <CartesianGrid strokeDasharray="3 3" />
@@ -82,8 +105,18 @@ const DashboardCharts = () => {
               <YAxis />
               <Tooltip />
               <Legend />
-              <Line type="monotone" dataKey="current" stroke="#8884d8" name="Current Week" />
-              <Line type="monotone" dataKey="previous" stroke="#82ca9d" name="Previous Week" />
+              <Line
+                type="monotone"
+                dataKey="current"
+                stroke="#8884d8"
+                name="Current Week"
+              />
+              <Line
+                type="monotone"
+                dataKey="previous"
+                stroke="#82ca9d"
+                name="Previous Week"
+              />
             </LineChart>
           </ResponsiveContainer>
         </CardContent>

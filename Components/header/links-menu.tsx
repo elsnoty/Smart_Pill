@@ -42,20 +42,20 @@ export function LinksMenu() {
     <div className="flex w-full items-center">
       <Icon
         icon="mingcute:menu-fill"
-        className="cursor-pointer rounded-full p-2 h-10 w-10 text-foreground lg:hidden"
+        className="h-10 w-10 cursor-pointer rounded-full p-2 text-foreground lg:hidden"
         onClick={() => setIsOpen(false)}
       />
       <aside
         ref={menuRef}
         className={cn(
-          `fixed px-5 py-4 bg-white/10 backdrop-blur-md shadow-xl z-50 left-0 lg:left-auto inset-y-0 w-navwidth transition-all duration-300 ease-in flex flex-col`,
-          { "-left-96": isOpen }
+          `fixed inset-y-0 left-0 z-50 flex w-navwidth flex-col bg-white/10 px-5 py-4 shadow-xl backdrop-blur-md transition-all duration-300 ease-in lg:left-auto`,
+          { "-left-96": isOpen },
         )}
       >
-        <Logo href="/dashboard" className="ml-4 lg:w-fit mb-6 " />
+        <Logo href="/dashboard" className="mb-6 ml-4 lg:w-fit" />
         <LinksProp links={links} pathname={pathname} />
       </aside>
-      <BreadCrumbs breadcrumbs={breadcrumbs} className="lg:pl-navpadding " />
+      <BreadCrumbs breadcrumbs={breadcrumbs} className="lg:pl-navpadding" />
     </div>
   );
 }

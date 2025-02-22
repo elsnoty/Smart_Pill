@@ -9,7 +9,7 @@ export default function SignoutForm() {
       <Button className="group min-h-11 w-full" type="submit">
         <Icon
           icon="uim:signout"
-          className="mr-2 bg-primary/10 p-1 box-content rounded-lg text-2xl group-hover:text-red-400 transition-colors"
+          className="mr-2 box-content rounded-lg bg-primary/10 p-1 text-2xl transition-colors group-hover:text-red-400"
         />
         Sign Out<span className="sr-only">sign out</span>
       </Button>
