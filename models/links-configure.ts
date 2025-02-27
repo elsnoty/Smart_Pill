@@ -21,4 +21,9 @@ export const links: LinksDetails[] = [
     label: "Pills",
     icon: "solar:pill-bold-duotone",
   },
+  {
+    link: "/dashboard/report",
+    label: "report",
+    icon: "solar:document-text-bold-duotone",
+  },
 ];

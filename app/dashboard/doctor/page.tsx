@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import { Card, CardContent } from "@/Components/ui/card";
-import bahget from "../../../public/images/body1.png";
+import bahget from "../../../public/images/doctoer.jpeg";
 import Link from "next/link";
 
 const TopRatedDoctors = [
@@ -107,8 +107,8 @@ const DoctorsPage = () => {
                 <Image
                   src={doctor.image}
                   alt={doctor.name}
-                  width={60}
-                  height={60}
+                  width={120}
+                  height={120}
                   className="rounded-full border-4 border-blue-500"
                 />
                 <h2 className="mt-3 text-lg font-semibold">{doctor.name}</h2>
@@ -134,8 +134,8 @@ const DoctorsPage = () => {
                 <Image
                   src={doctor.image}
                   alt={doctor.name}
-                  width={60}
-                  height={60}
+                  width={80}
+                  height={80}
                   className="rounded-full border-4 border-blue-500"
                 />
                 <h2 className="mt-3 text-lg font-semibold">{doctor.name}</h2>
