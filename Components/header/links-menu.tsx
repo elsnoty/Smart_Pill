@@ -6,7 +6,7 @@ import { LinksProp } from "./links-prop";
 import { cn } from "@/lib/utils";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import { usePathname } from "next/navigation";
-import { generateBreadcrumbs } from "@/lib/ganerate-breadcrumbs";
+import { useBreadcrumbs } from "@/lib/ganerate-breadcrumbs";
 import BreadCrumbs from "../ui/beardcrumbs";
 
 export function LinksMenu() {
@@ -36,7 +36,7 @@ export function LinksMenu() {
     };
   }, [isOpen]); // Depend on isOpen to ensure the event listener uses the latest state
 
-  const breadcrumbs = generateBreadcrumbs({ links, pathname });
+  const breadcrumbs = useBreadcrumbs({ links, pathname });
 
   return (
     <div className="flex w-full items-center">

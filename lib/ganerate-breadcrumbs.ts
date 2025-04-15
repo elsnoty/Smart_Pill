@@ -1,6 +1,6 @@
 import { LinksDetails } from "./types/definitions";
 
-export const generateBreadcrumbs = ({
+export const useBreadcrumbs = ({
   pathname,
   links,
 }: {
