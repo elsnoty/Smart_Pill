@@ -6,7 +6,7 @@ import { LinksProp } from "./links-prop";
 import { cn } from "@/lib/utils";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import { usePathname } from "next/navigation";
-import { useBreadcrumbs } from "@/lib/ganerate-breadcrumbs";
+import { useBreadcrumbs } from "@/lib/usebreadcrumbs";
 import BreadCrumbs from "../ui/beardcrumbs";
 
 export function LinksMenu() {
